@@ -7,13 +7,12 @@ impl Solution {
             (_, l) if l < 1 => panic!("p length must be 1 character or greater!"),
             (l, _) if l > 20 => panic!("s length must be 20 characters or fewer!"),
             (_, l) if l > 30 => panic!("p length must be 30 characters or fewer!"),
-            _ => ()
+            _ => (),
         }
         let (c_s, c_p) = (s.chars().next(), p.chars().next());
         c_s == c_p || c_p == Some('.')
     }
 }
-
 
 #[cfg(test)]
 mod tests {
@@ -21,19 +20,34 @@ mod tests {
 
     #[test]
     fn a_is_a() {
-        assert_eq!(Solution::is_match(String::from("a"), String::from("a")), true);
+        assert_eq!(
+            Solution::is_match(String::from("a"), String::from("a")),
+            true
+        );
     }
 
     #[test]
     fn a_is_not_b() {
-        assert_eq!(Solution::is_match(String::from("b"), String::from("a")), false);
+        assert_eq!(
+            Solution::is_match(String::from("b"), String::from("a")),
+            false
+        );
     }
 
     #[test]
     fn dot_matches_any_character() {
-        assert_eq!(Solution::is_match(String::from("a"), String::from(".")), true);
-        assert_eq!(Solution::is_match(String::from("b"), String::from(".")), true);
-        assert_eq!(Solution::is_match(String::from("x"), String::from(".")), true);
+        assert_eq!(
+            Solution::is_match(String::from("a"), String::from(".")),
+            true
+        );
+        assert_eq!(
+            Solution::is_match(String::from("b"), String::from(".")),
+            true
+        );
+        assert_eq!(
+            Solution::is_match(String::from("x"), String::from(".")),
+            true
+        );
     }
 
     #[test]
